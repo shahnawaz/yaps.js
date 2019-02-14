@@ -4,17 +4,18 @@ A small PubSub library written in JavaScript (ES6).
 
 ## Files
 * yaps.js -- uses ES6
-* yaps.min.js -- minified version (compatible for older versions EcmaScript)
+* yaps.min.js -- minified version (compatible with older versions of EcmaScript)
 
 ## Pros?
 1. Fairly simple and straight forward.
 2. < 1Kb  size of minified file.
 3. Minified version is compatible with previous versions of ES6.
+4. Dependency free.
 
 ## Usage
 
-- Load minified file in html with `<script>` tag.
-- Once loaded in project, `yaps` will be available globally with the following exposed interfaces.
+- Load the minified file `yaps.min.js` in html with `<script>` tag.
+- Once loaded, `yaps` will be available globally with the following exposed interfaces.
 
 #### Subscribe
 
