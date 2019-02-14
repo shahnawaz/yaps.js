@@ -1,6 +1,6 @@
 {
   "name": "yaps.js",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A lightweight, small and straight forward PubSub library!",
   "main": "yaps.min.js",
   "scripts": {
@@ -11,6 +11,7 @@
     "url": "git+https://github.com/ShahnawazAli93/yaps.js.git"
   },
   "keywords": [
+    "yaps.js",
     "yaps",
     "pubsub",
     "javascript",
