@@ -14,8 +14,15 @@ A small PubSub library written in JavaScript (ES6).
 
 ## Usage
 
+NPM
+
+- Use `npm i yaps.js -s`
+
+Browser
+
 - Load the minified file `yaps.min.js` in html with `<script>` tag.
 - Once loaded, `yaps` will be available globally with the following exposed interfaces.
+
 
 #### Subscribe
 
@@ -86,16 +93,13 @@ yaps.publish('exampleTopic', 'hello', 'world');
 
 ##### Example Code (for node.js)
 
+Assuming you have installed `yaps.js` via npm/yarn.
+
 ```
 (function() {
 
-    // using minified file
-    this.yaps = require('./yaps.min.js').yaps;
-    
-    // using unminified file
-    // this.yaps = require('./yaps.js').yaps;
-    
-    // OR add with process "process.yaps = require('./yaps.js')"
+    this.yaps = require('yaps.js').yaps;    
+    // OR add to process "process.yaps = require('./yaps.js')"
     
     let id = yaps.subscribe('exampleTopic', function(a){
         console.log(a)
