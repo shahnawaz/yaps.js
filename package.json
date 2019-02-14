@@ -1,0 +1,25 @@
+{
+  "name": "yaps.js",
+  "version": "1.0.0",
+  "description": "A lightweight, small and straight forward PubSub library!",
+  "main": "yaps.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShahnawazAli93/yaps.js.git"
+  },
+  "keywords": [
+    "yaps",
+    "pubsub",
+    "javascript",
+    "es6"
+  ],
+  "author": "Shahnawaz Ali <mr_shah@live.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShahnawazAli93/yaps.js/issues"
+  },
+  "homepage": "https://github.com/ShahnawazAli93/yaps.js#readme"
+}
