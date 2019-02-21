@@ -1,8 +1,8 @@
 {
   "name": "yaps.js",
   "version": "1.0.3",
-  "description": "A lightweight, small and straight forward PubSub library!",
-  "main": "yaps.min.js",
+  "description": "A lightweight and small PubSub library written in JavaScript (ES6)!",
+  "main": "yaps.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
