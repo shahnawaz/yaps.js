@@ -82,6 +82,4 @@
 
     };
 
-    yaps.topics = topics;
-
 }));
