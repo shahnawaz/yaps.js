@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShahnawazAli93/yaps.js.git"
+    "url": "git+https://github.com/shahnawaz/yaps.js.git"
   },
   "keywords": [
     "yaps.js",
@@ -17,10 +17,10 @@
     "javascript",
     "es6"
   ],
-  "author": "Shahnawaz Ali <mr_shah@live.com>",
+  "author": "Shahnawaz Ali <shahnawazakausar@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ShahnawazAli93/yaps.js/issues"
+    "url": "https://github.com/shahnawaz/yaps.js/issues"
   },
-  "homepage": "https://github.com/ShahnawazAli93/yaps.js#readme"
+  "homepage": "https://github.com/shahnawaz/yaps.js#readme"
 }
