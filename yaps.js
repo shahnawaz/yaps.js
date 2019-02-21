@@ -1,81 +1,87 @@
-"use strict";
 // Yet Another PubSub (implementation with ES6)
 
-(function(root) {
+(function(root, factory) {
 
-	// if already loaded, return the old object
-	if (root && root.yaps) {
-		return root.yaps;
-	}
+    let yaps = {};
 
-	// Hold topics
-	let topics = {};
+    let define = root.define;
 
-	// Unique identifier for each subscriber
-	let subscriberIdentifier = -1;
+    factory(yaps);
 
-	// Subscribe to topic/event with a callback function
-	const subscribe = (topic, func) => {
+    if (typeof define === 'function' && define.amd){
+    	// AMD. Register as an anonymous module
+        define(function() { return yaps; });
+    } else if (typeof exports === 'object'){
+    	// CommonJS
+        if (module !== undefined && module.exports) {
+        	// Node support
+            exports = module.exports = yaps;
+        } else {
+        	// Old CommonJS support
+            exports.yaps = yaps;
+            module.exports = exports = yaps;
+        }
+    }
 
-		if(!topics[topic]) {
-			topics[topic] = [];
-		}
+}((typeof window === 'object' && window) || this, (yaps) => {
 
-		let token = (++subscriberIdentifier).toString();
-		topics[topic].push({
-			func,
-			token
-		});
+    // Hold topics
+    let topics = {};
 
-		return token;
+    // Unique identifier for each subscriber
+    let subscriberIdentifier = -1;
 
-	};
+    // Subscribe to topic/event with a callback function
+    yaps.subscribe = (topic, func) => {
 
-	// Unsubscribe to topic/event by providing the token returned from PubSub.subscribe(topic)
-	const unsubscribe = (token) => {
+        if(!topics[topic]) {
+            topics[topic] = [];
+        }
 
-		for(let topic in topics) {
-			if(topics.hasOwnProperty(topic)) {
-				topics[topic].forEach((subscriber, index) => {
-					if(subscriber.token === token) {
-						topics[topic].splice(index, 1);
-					}
-				})
-			}
-		}
+        let token = (++subscriberIdentifier).toString();
+        topics[topic].push({
+            func,
+            token
+        });
 
-		return root.yaps;
+        return token;
 
-	};
+    };
 
-	// Publish or broadcast topic/event with the desired arguments
-	const publish = (topic, ...rest) => {
+    // Unsubscribe to topic/event by providing the token returned from PubSub.subscribe(topic)
+    yaps.unsubscribe = (token) => {
 
-		if(!topics[topic]) {
-			return false;
-		}
-		
-		let subscribers = topics[topic];
+        for(let topic in topics) {
+            if(topics.hasOwnProperty(topic)) {
+                topics[topic].forEach((subscriber, index) => {
+                    if(subscriber.token === token) {
+                        topics[topic].splice(index, 1);
+                    }
+                })
+            }
+        }
 
-		subscribers.forEach(subscriber => {
-			subscriber.func(...rest)
-		});
+        return yaps;
 
-		return root.yaps;
+    };
 
-	};
+    // Publish or broadcast topic/event with the desired arguments
+    yaps.publish = (topic, ...rest) => {
 
-	// To reveal only the public interfaces
-	let yaps = {
-		publish,
-		subscribe,
-		unsubscribe
-	};
+        if(!topics[topic]) {
+            return false;
+        }
 
-	if (root) {
-		root.yaps = yaps;
-	}
+        let subscribers = topics[topic];
 
-	return yaps;
+        subscribers.forEach(subscriber => {
+            subscriber.func(...rest)
+        });
 
-}((typeof window === 'object' && window) || this));
+        return yaps;
+
+    };
+
+    yaps.topics = topics;
+
+}));
