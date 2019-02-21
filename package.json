@@ -1,6 +1,6 @@
 {
   "name": "yaps.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight, small and straight forward PubSub library!",
   "main": "yaps.min.js",
   "scripts": {
